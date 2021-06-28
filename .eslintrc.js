@@ -4,9 +4,12 @@ module.exports = {
     project: 'tsconfig.json',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint/eslint-plugin'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'import'],
   extends: [
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
   root: true,
@@ -14,11 +17,35 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js'],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    'import/order': ['error', {
+      'alphabetize': {
+        'order': 'asc',
+        'caseInsensitive': true
+      },
+      'newlines-between': 'always',
+      'pathGroups': [
+        {
+          'pattern': '~/',
+          'group': 'internal',
+          'position': 'after'
+        },
+        {
+          'pattern': '../',
+          'group': 'internal',
+          'position': 'after'
+        },
+        {
+          'pattern': './**',
+          'group': 'internal',
+          'position': 'after'
+        }
+      ]
+    }],
   },
-};
+}
