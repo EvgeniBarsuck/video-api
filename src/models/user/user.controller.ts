@@ -7,6 +7,6 @@ export class UserController {
 
   @Get('/')
   async findAll() {
-      return this.service.findAll();
+    return true
   }
 }
