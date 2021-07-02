@@ -4,6 +4,7 @@ import { AppService } from './app.service'
 import { ConfigModule } from '@nestjs/config'
 import { AuthModule } from './models/auth/auth.module'
 import { UserModule } from './models/user/user.module'
+import { VideoModule } from './models/video/video.module'
 
 @Module({
   imports: [
