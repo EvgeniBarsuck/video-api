@@ -12,7 +12,9 @@ import { LocalStrategy } from './stragies/local.strategy'
   imports: [
     UserModule,
     PassportModule,
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      envFilePath: `.${process.env.NODE_ENV}.env`,
+    }),
     JwtModule.register({
       secret: process.env.SECRET_KEY,
       signOptions: { expiresIn: '3600s' },
