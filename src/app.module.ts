@@ -7,7 +7,13 @@ import { UserModule } from './models/user/user.module'
 import { VideoModule } from './models/video/video.module'
 
 @Module({
-  imports: [ConfigModule.forRoot(), AuthModule, UserModule, VideoModule],
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: `.${process.env.NODE_ENV}.env`,
+    }),
+    AuthModule,
+    UserModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
