@@ -13,6 +13,7 @@ import { VideoModule } from './models/video/video.module'
     }),
     AuthModule,
     UserModule,
+    VideoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
