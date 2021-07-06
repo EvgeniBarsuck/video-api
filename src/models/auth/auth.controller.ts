@@ -3,7 +3,7 @@ import { AuthService } from './auth.service'
 import { JwtAuthGuard } from './guards/jwt-auth.guard'
 import { LocalAuthGuard } from './guards/local-auth.guard'
 import { ApiOperation, ApiResponse } from '@nestjs/swagger'
-import { User } from 'src/models/auth/entities/user.entity'
+import { User } from 'src/common/entities/user.entity'
 
 @Controller('auth')
 export class AuthController {

@@ -1,3 +1,5 @@
+import { User } from 'src/common/entities/user.entity'
+import { Video } from 'src/common/entities/video.entity'
 import { createConnection } from 'typeorm'
 
 export const databaseProviders = [
@@ -11,8 +13,9 @@ export const databaseProviders = [
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRES_PASSWORD,
         database: process.env.POSTGRES_DB,
-        entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
+        entities: [Video, User],
         synchronize: true,
       }),
   },
 ]
+//__dirname + '/../**/*.entity{.ts,.js}'

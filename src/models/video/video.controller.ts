@@ -1,6 +1,5 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { Roles } from 'src/common/decorators/roles.decorator';
-import { User } from 'src/models/auth/entities/user.entity';
 import { Role } from 'src/common/types/auth.types';
 import { RolesGuard } from 'src/guards/roles.guards';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
