@@ -8,32 +8,27 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @ApiProperty({
-    name: 'User login',
-    type: 'string',
-    maxLength: 15,
-    required: true,
-    title: 'User login',
-    description: 'User login for authorization',
-    example: 'userLogin',
-    uniqueItems: true,
-    nullable: false,
-  })
+  @ApiProperty(userSwaggerSettings.login)
   @Column({ type: 'varchar', length: 15, unique: true, nullable: false })
   login: string
 
-  @Column({ type: 'varchar', length: 40, nullable: false })
+  @ApiProperty(userSwaggerSettings.password)
+  @Column({ type: 'varchar', length: 20, nullable: false })
   password: string
 
+  @ApiProperty(userSwaggerSettings.email)
   @Column({ type: 'varchar', length: 30, unique: true, nullable: false })
-  emailAdress: string
+  email: string
 
+  @ApiProperty(userSwaggerSettings.role)
   @Column({ type: 'text', array: true, default: [] })
   role: string[]
 
+  @ApiProperty(userSwaggerSettings.isBanned)
   @Column({ type: 'bool', default: false, nullable: false })
   isBanned: boolean
 
-  @Column({ type: 'varchar', nullable: false, default: 0 })
+  @ApiProperty(userSwaggerSettings.profielId)
+  @Column({ type: 'varchar', nullable: false })
   profileId: string
 }
